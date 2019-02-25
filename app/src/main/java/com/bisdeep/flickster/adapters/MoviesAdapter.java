@@ -70,7 +70,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             if(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
                 imageUrl = movie.getBackdropPath();
             }
-             Glide.with(context).load(movie.getPosterPath()).into(ivPoster);
+             Glide.with(context).load(imageUrl).into(ivPoster);
              //add click listener on whole row
             /* container.setOnClickListener((view) => {
                 Intent j = new Intent(context, DetailActivity.class);
