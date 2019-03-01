@@ -3,10 +3,12 @@ package com.bisdeep.flickster.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Movie {
     String posterPath;
     String title;
@@ -14,6 +16,12 @@ public class Movie {
     String backdropPath;
     int movieId;
     double voteAverage;
+    float popularity;
+    String releaseDate;
+
+    //empty constructor needed by parcel library
+    public Movie() {
+    }
 
     public Movie(JSONObject jsonObject) throws JSONException {
         //link variables from api
@@ -23,6 +31,10 @@ public class Movie {
         voteAverage = jsonObject.getDouble("vote_average");
         movieId = jsonObject.getInt("id");
         backdropPath = jsonObject.getString("backdrop_path");
+        //voteAverage = jsonObject.getDouble("vote_average");
+        movieId = jsonObject.getInt("id");
+        popularity = jsonObject.getInt("popularity");
+        releaseDate = jsonObject.getString("release_date");
 
     }
     public static List<Movie> fromJsonArray(JSONArray movieJsonArray) throws JSONException {
@@ -52,6 +64,12 @@ public class Movie {
     }
     public int getMovieId(){
         return movieId;
+    }
+    public String getReleaseDate(){
+        return releaseDate;
+    }
+    public float getPopularity(){
+        return popularity;
     }
 
 }
