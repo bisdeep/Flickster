@@ -88,7 +88,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             //add click listener on whole row
             container.setOnClickListener(new View.OnClickListener() {
                                              @Override
-                                             public void onClick(View view) {
+                                             public void onClick(View view) {//This is how we load the new activity from a click in movies adapter
                                                  //Navigate to detail activity on tap
                                                  Intent i = new Intent(context, DetailActivity.class);
                                                  i.putExtra("movie", Parcels.wrap(movie));
